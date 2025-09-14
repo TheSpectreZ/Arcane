@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+	<Type Name="arc::MemoryBuffer">	
+		<DisplayString>size = {mSize}</DisplayString>
+		<Expand>
+			<Item Name="size">mSize</Item>
+			<Item Name="capacity">mCapacity</Item>
+			<Item Name="data">mData</Item>
+
+			<Synthetic Name="Items">
+				<Expand>
+					<ArrayItems>
+						<Size>mSize</Size>
+						<ValuePointer>mData</ValuePointer>
+					</ArrayItems>
+				</Expand>
+			</Synthetic>
+		</Expand>
+	</Type>
+
+	<Type Name="arc::ArrayBuffer&lt;*,*&gt;">
+		<DisplayString>count = {mCount}</DisplayString>
+		<Base>arc::MemoryBuffer</Base>
+		<Expand>
+			<Item Name="index">mIndex</Item>
+			<Item Name="count">mCount</Item>
+			<Item Name="element size">mElementStride</Item>
+
+			<Synthetic Name="Items">
+				<Expand>
+					<ArrayItems>
+						<Size>mSize</Size>
+						<ValuePointer>mData</ValuePointer>
+					</ArrayItems>
+				</Expand>
+			</Synthetic>
+		</Expand>
+	</Type>
+	
+</AutoVisualizer>
